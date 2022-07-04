@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+    <h1><b>게시글 작성</b></h1>
+
+    <form method="POST" name="createForm">
+        {% csrf_token %}
+        <div class="mb-3 mt-5">
+            <label class="form-label"><b>SUBJECT</b></label>
+            <input type="text" name="csub" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><b>WRITER</b></label>
+            <input type="text" class="form-control" value="{{ user }}" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><b>CONTENT</b></label>
+            <textarea class="form-control" name="ccon" style="height: 150px;"></textarea>
+        </div>
+        <div class="text-end mt-3">
+            <button onclick="check()" type="button" class="btn btn-primary">생성</button>
+        </div>
+    </form>
+    
+    <script>
+        function check(){
+            f = document.createForm;
+            if(!f.csub.value){
+                alert("제목을 입력해주세요!!");
+            }else if(!f.ccon.value){
+                alert("내용을 입력해주세요!!");
+            }else{
+                f.submit();
+            }
+        }
+    </script>
+
+
+{% endblock %}

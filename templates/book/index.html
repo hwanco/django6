@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+    <h1><b>{{user}}'s 북마크</b></h1>
+    <br>
+
+    <div class="text-end">
+        <a href="{% url 'book:create' %}" class="btn btn-primary">북마크생성</a>
+    </div>
+
+    <div class="row">
+        {% for i in bset %}
+            <div class="col-sm-4 mt-4 text-center">
+                <div class="card">
+                    <div class="card-body" {% if i.impo %}style="background-color:rgb(184, 234, 250)"{% endif %}>
+                        <h5 class="card-title"><b>{{i.site_name}}</b></h5>
+                        <p class="card-text">{{i.site_con}}</p>
+                        <a href="{{ i.site_url }}" class="btn btn-primary">MOVE</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

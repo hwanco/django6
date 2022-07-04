@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block con %}
+    <h1><b>Translation</b></h1>
+
+    <form>
+        <div class="row mt-5">
+            <div class="col-sm-5">
+                <!-- Before -->
+                <textarea name="bftext" class="form-control" style="height: 400px;">{{text}}</textarea>
+            </div>
+            <div class="col-sm-2 text-center container mt-5">
+                <!-- Before language -->
+                <select name="bflang" class="form-select">
+                    <option value="ko" {% if bflang == "ko" %} selected {% endif %}>Korean</option>
+                    <option value="en" {% if bflang == "en" %} selected {% endif %}>English</option>
+                    <option value="ja" {% if bflang == "ja" %} selected {% endif %}>Japanese</option>
+                    <option value="zh-tw" {% if bflang == "zh-tw" %} selected {% endif %}>Chinese</option>
+                    <option value="fr" {% if bflang == "fr" %} selected {% endif %}>French</option>
+                </select>
+                
+                <button class="btn btn-primary mt-5">Trans</button>
+
+                <br>
+                <!-- After Language -->
+                <select name="aftlang" class="form-select mt-5">
+                    <option value="ko" {% if aftlang == "ko" %} selected {% endif %}>Korean</option>
+                    <option value="en" {% if aftlang == "en" %} selected {% endif %}>English</option>
+                    <option value="ja" {% if aftlang == "ja" %} selected {% endif %}>Japanese</option>
+                    <option value="zh-tw" {% if aftlang == "zh-tw" %} selected {% endif %}>Chinese</option>
+                    <option value="fr" {% if aftlang == "fr" %} selected {% endif %}>French</option>
+                </select>
+            </div>
+            <div class="col-sm-5">
+                <!-- After -->
+                <textarea class="form-control" disabled style="height: 400px;">{{trans}}</textarea>
+            </div>
+        </div>
+    </form>
+    
+{% endblock %}
